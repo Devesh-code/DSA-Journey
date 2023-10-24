@@ -19,7 +19,9 @@ public:
 };
 int main() 
 {
+    int n;
+    cin>>n;
   Solution s;
-  s.isPowerOfThree(27);
+  s.isPowerOfThree(n);
   return 0;
 }
