@@ -5,6 +5,7 @@ public:
         if (numRows <= 0) {
             return res;
         }
+        9
 
         res.push_back({1});
         for (int i = 1; i < numRows; i++) {
