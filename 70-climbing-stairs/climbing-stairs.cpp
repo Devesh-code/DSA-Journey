@@ -5,7 +5,7 @@ public:
     if (n == 1) return 1;
     
     // Initialize a vector 'steps' with 'n + 1' elements to store the number of ways to reach each step.
-    std::vector<int> steps(n + 1);
+    vector<int> steps(n + 1);
 
     // Initialize the base cases for the first two steps.
     steps[1] = 1; // There is one way to reach the first step.
