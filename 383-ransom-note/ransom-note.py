@@ -1,20 +1,25 @@
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
-        # Create a list to represent the character count in the magazine.
-        magazineHash = [0] * 26
+        ## Define the lowercase letters of the alphabet.
+        letters = 'abcdefghijklmnopqrstuvwxyz'
 
-    # Traverse the magazine and count occurrences of each letter.
+        # Initialize a dictionary 'counter' with letters as keys and 0 as initial count.
+        counter = {letter: 0 for letter in letters}
+
+        # Traverse the 'magazine' string and count occurrences of each letter.
         for char in magazine:
-            magazineHash[ord(char) - ord('a')] += 1
-
-    # Traverse the ransomNote and check if it can be constructed from the magazine.
+            counter[char] += 1
+        
+        # Traverse the 'ransomNote' string and decrement the count of each letter.
         for char in ransomNote:
-            index = ord(char) - ord('a')
-        # If the count of the character in magazine is zero, return False.
-            if magazineHash[index] == 0:
+            counter[char] -= 1
+
+        # Check if any count in 'counter' is negative, indicating insufficient characters.
+        for char, count in counter.items():
+            if counter[char] < 0:
                 return False
-        # Decrement the count of the character in magazine.
-            magazineHash[index] -= 1
+
+        # If all characters in 'ransomNote' can be constructed, return True.
         return True
 
         
