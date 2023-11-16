@@ -1,26 +1,17 @@
 class Solution {
 public:
     bool repeatedSubstringPattern(string s) {
-         int len = s.length();
+        // Get the total length of the string
+        int n = s.size();
 
-        // Iterate from len/2 to 1, checking possible lengths of repeated substrings
-        for (int i = len / 2; i >= 1; i--) {
-            // Check if the current length 'i' divides the total length 'len'
-            if (len % i == 0) {
-                // Calculate the number of repeats needed for the substring of length 'i'
-                int num_repeats = len / i;
-
-                // Extract the substring of length 'i'
-                string substring = s.substr(0, i);
-
-                // Build a new string by repeating the substring 'num_repeats' times
-                string repeated_str;
-                for (int j = 0; j < num_repeats; j++) {
-                    repeated_str += substring;
-                }
-
-                // Check if the repeated string is equal to the original string 's'
-                if (repeated_str == s) {
+        // Iterate from n/2 to 1, checking possible lengths of repeated substrings
+        for (int i = n / 2; i >= 1; i--) {
+            // Check if the current length 'i' divides the total length 'n'
+            if (n % i == 0) {
+                // Compare substrings to check for repetition
+                // Check if the prefix of length (n - i) is equal to the suffix of length (i)
+                if (s.substr(0, n - i) == s.substr(i)) {
+                    // If true, it means the string can be formed by repeating a substring
                     return true;
                 }
             }
