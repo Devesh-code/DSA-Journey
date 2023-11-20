@@ -9,7 +9,7 @@ int fib(int n) {
     }
 
     // Dynamic programming using an array
-    std::vector<int> dp(n + 1);
+    vector<int> dp(n + 1);
     dp[0] = 0;
     dp[1] = 1;
 
