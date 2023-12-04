@@ -1,45 +1,49 @@
 class Solution {
 public:
     string shortestCompletingWord(string licensePlate, vector<string>& words) {
-         // Parse licensePlate
-        unordered_map<char, int> charCount;
-        for (char c : licensePlate) {
-            if (isalpha(c)) {
-                charCount[tolower(c)]++;
+      const int WORD_MAX_LEN = INT_MAX;  // Define WORD_MAX_LEN
+
+        vector<char> letters;
+        string returnWord;
+        int returnWordLen = WORD_MAX_LEN;
+
+        transform(licensePlate.begin(), licensePlate.end(), licensePlate.begin(), ::tolower);
+        
+        for (char ch : licensePlate) {
+            if (isLetter(ch)) {
+                letters.push_back(ch);
             }
         }
-
-        string result;
-        int minLength = INT_MAX;
-
-        // Check each word
+        
         for (const string& word : words) {
-            if (isCompletingWord(word, charCount) && word.length() < minLength) {
-                result = word;
-                minLength = word.length();
+            if (word.size() < returnWordLen && isCompletingWord(word, letters)) {
+                returnWordLen = word.size();
+                returnWord = word;
             }
         }
 
-        return result;
+        return returnWord;
     }
 
 private:
-    bool isCompletingWord(const string& word, const unordered_map<char, int>& charCount) {
-        unordered_map<char, int> wordCount;
+    bool isLetter(char ch) {
+        return (ch >= 'a' && ch <= 'z');
+    }
 
-        for (char c : word) {
-            wordCount[c]++;
+    bool isCompletingWord(const string& word, const vector<char>& letters) {
+        vector<int> letterCount(26, 0);
+
+        for (char ch : word) {
+            letterCount[ch - 'a']++;
         }
 
-        for (const auto& entry : charCount) {
-            char c = entry.first;
-            int count = entry.second;
-
-            if (wordCount[c] < count) {
+        for (char ch : letters) {
+            if (letterCount[ch - 'a'] == 0) {
                 return false;
             }
+            letterCount[ch - 'a']--;
         }
 
-        return true;
+        return true;   
     }
 };
