@@ -5,9 +5,9 @@ public:
         for (auto& c : paragraph)
             c = ispunct(c) ? ' ' : tolower(c);
 
-        std::string str, res;
-        std::unordered_map<std::string, int> freq;
-        std::unordered_set<std::string> b(banned.begin(), banned.end());
+        string str, res;
+        unordered_map<string, int> freq;
+        unordered_set<string> b(banned.begin(), banned.end());
 
         auto it = paragraph.begin();
         while (it != paragraph.end()) {
