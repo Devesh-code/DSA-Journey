@@ -1,7 +1,11 @@
 class Solution {
 public:
     int findMaxConsecutiveOnes(vector<int>& nums) {
-        int cnt = 0;
+        /*
+        To solve this question we will be using two variable one is cnt to store the count of consicutive ones and another one is max to store the maximum value of cnt,
+        And in the end of loop we will have our answer as max.
+        */
+        int cnt = 0; 
         int max = 0;
         for (int i = 0; i < nums.size(); i++){
             if(nums[i] == 1) cnt++;
