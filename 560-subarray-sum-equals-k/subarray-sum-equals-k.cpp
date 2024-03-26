@@ -11,7 +11,6 @@ public:
                 s += nums[j];
                 if(s == k){
                     flag += 1;
-                    len = max(len, j - i + 1);
                 }
             }
         }
