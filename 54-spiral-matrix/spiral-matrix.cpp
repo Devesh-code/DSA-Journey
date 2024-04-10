@@ -1,6 +1,7 @@
 class Solution {
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
+
         // Define ans array to store the result.
         vector<int> ans;
  
@@ -41,6 +42,6 @@ public:
                 left++;
             }
         }
-        return ans;
+        return ans; // with TC = O(n*m) and SC = O(n)
     }
 };
