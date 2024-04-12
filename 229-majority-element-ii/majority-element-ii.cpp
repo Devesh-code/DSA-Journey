@@ -74,7 +74,7 @@ public:
             }
         }
 
-        vector<int> ans; // list of answers
+        vector<int> ans; 
 
         // Manually check if the stored elements in
         // el1 and el2 are the majority elements:
