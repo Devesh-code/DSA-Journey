@@ -27,6 +27,6 @@ public:
             suff = suff * nums[n - i - 1];
             ans = max(ans,max(pre,suff));
         }
-        return ans;
+        return ans; // with TC = O(N) & SC(1)
     }
 };
