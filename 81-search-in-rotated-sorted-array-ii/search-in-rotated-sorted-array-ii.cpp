@@ -1,9 +1,9 @@
 class Solution {
 public:
     bool search(vector<int>& nums, int target) {
-            // the broute force for this question will the simple linear search
+// the broute force for this question will the simple linear search
 
-        // The optimal approach with TC = O(logN)
+// The optimal approach with TC = O(logN) and in worst case TC = O(N/2)
 
         int n = nums.size();
         int low = 0, high = n - 1;
